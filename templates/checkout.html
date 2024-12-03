@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{% static 'css/checkoutstyle.css' %}">
+</head>
+<body>
+    <form method="post" action="{% url 'create_payment' %}" class="checkout-container">
+        {% csrf_token %}
+        <div class="secure-checkout">
+            <h2>Secure Checkout</h2>
+        </div>
+        <div class="section">
+            <h2>Delivery Address</h2>
+            <div class="checkout-form">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+
+                <label for="address">Delivery Address:</label>
+                <textarea id="address" name="address" rows="4" placeholder="Enter your delivery address" required></textarea>
+
+                <label for="state">State:</label>
+                <select id="state" name="state" required>
+                    <option value="" disabled selected>Select your state</option>
+                    <option value="AP">Andhra Pradesh</option>
+                    <option value="AR">Arunachal Pradesh</option>
+                    <option value="AS">Assam</option>
+                    <option value="GA">Goa</option>
+                    <option value="GJ">Gujarat</option>
+                    <option value="HR">Haryana</option>
+                    <option value="HP">Himachal Pradesh</option>
+                </select>
+
+                <label for="pin-code">PIN Code:</label>
+                <input type="text" id="pin-code" name="pin-code" placeholder="Enter your PIN code" required>
+
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="" disabled selected>Select your country</option>
+                    <option value="AF">Afghanistan</option>
+                    <option value="DE">Germany</option>
+                    <option value="IS">Iceland</option>
+                    <option value="IN">India</option>
+                    <option value="IQ">Iraq</option>
+                    <option value="JP">Japan</option>
+                    <option value="JO">Jordan</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section order-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-item">
+                <span>Subtotal (Price):</span>
+                <span>${{ subtotal }}</span>
+            </div>
+            <div class="summary-item">
+                <span>Shipping to India:</span>
+                <span>${{ shipping_cost }}</span>
+            </div>
+            <div class="summary-item">
+                <span>Sales Tax:</span>
+                <span>Free</span>
+            </div>
+            <div class="summary-item total">
+                <span>Order Total:</span>
+                <span>${{ order_total }}</span>
+            </div>
+            <div>
+                <button type="submit" class="pay-now">Pay Now</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        document.querySelector('.checkout-container').onsubmit = function(event) {
+            event.preventDefault();  // Prevent default form submission
+            
+            var formData = new FormData(this);
+        
+            // Make an AJAX request to create payment
+            fetch("{% url 'create_payment' %}", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.payment_link) {
+                    // Display payment link
+                    window.location.href = data.payment_link;  // Redirect to payment page
+                } else if (data.qr_code) {
+                    // Display QR code in the HTML
+                    var qrCodeContainer = document.createElement('div');
+                    var qrImage = document.createElement('img');
+                    qrImage.src = data.qr_code;
+                    qrCodeContainer.appendChild(qrImage);
+                    document.body.appendChild(qrCodeContainer);  // Show it on the page
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
+        </script>        
+</body>
+</html>

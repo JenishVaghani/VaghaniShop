@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Admin</title>
+    <link rel="stylesheet" href="{% static 'css/productadminstyle.css' %}">
+</head>
+<body>
+
+    <!-- Filter Section -->
+    <div class="filter-bar">
+        <label for="product-filter">Filter by Category:</label>
+        <select id="product-filter">
+            <option value="all">All</option>
+            <option value="men's clothing">Men's clothing</option>
+            <option value="watches">Watches</option>
+            <option value="jewelery">Jewelry</option>
+            <option value="electronics">Electronics</option>
+            <option value="women's clothing">Women's clothing</option>
+        </select>
+        <button id="filter-btn">Submit</button>
+        <a href="{% url 'productshow' %}" class="show-products-btn">Show Products</a>
+    </div>
+    
+    <div class="product-grid">
+        <!-- Product1 -->
+        {% for products in product %}
+        <div class="product-container">
+            <div class="image-section">
+                 <img src="{{ products.Images.url }}" alt="Product Image">
+                <div class="product-options">
+                    <a href="{% url 'edit' products.id %}" class="edit-option">✎ Edit</a>
+                    <a href="{% url 'delete' products.id %}" class="delete-option" onclick="return confirm('Are you sure you want to delete this product?');">🗑 Delete</a>
+                </div>
+                <div class="rating">★★★★☆</div>
+            </div>
+            <div class="details">
+                <h2 class="title">{{products.Title}}</h2>
+                <p class="description">{{products.Description}}</p>
+                <p class="price">${{products.Price}}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Add Product Button -->
+        <div class="add-product-container">
+            <a href="{% url 'add' %}" class="add-product-btn">+</a>
+        </div>
+    </div>
+
+</body>
+</html>

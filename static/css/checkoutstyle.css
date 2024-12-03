@@ -1,0 +1,196 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Secure Checkout Section */
+.secure-checkout {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.secure-checkout h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+/* Checkout Page Container */
+.checkout-container {
+    width: 80%;
+    max-width: 650px;
+    margin: 30px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f9fc;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Titles */
+h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Form Input Styles */
+.checkout-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-size: 18px;
+    color: #444;
+}
+
+.checkout-form input,
+.checkout-form textarea,
+.checkout-form select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus,
+.checkout-form select:focus {
+    border-color: #5f9ea0;
+    outline: none;
+    background-color: #e0f7f7;
+}
+
+
+/* Order Summary */
+.order-summary .summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.order-summary .summary-item span {
+    color: #333;
+}
+
+.order-summary .total {
+    font-weight: bold;
+    font-size: 22px;
+    color: #4caf50;
+}
+
+/* Pay Now Button */
+.pay-now {
+    width: 100%;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(45deg, #4caf50, #388e3c);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.pay-now:hover {
+    background: linear-gradient(45deg, #388e3c, #2c6b2e);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .checkout-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .checkout-form input,
+    .checkout-form textarea,
+    .checkout-form select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .order-summary .summary-item {
+        font-size: 16px;
+    }
+
+    .pay-now {
+        font-size: 18px;
+    }
+
+    .section {
+        padding: 15px;
+    }
+}
+
+/* Button Styling */
+.checkout-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.checkout-form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Custom Dropdown (for State and Country select) */
+.checkout-form select {
+    background-color: #fff;
+    padding-right: 20px;
+    font-size: 16px;
+}
+
+/* Add some space for mobile */
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea {
+    margin-bottom: 20px;
+}
+
+.checkout-container {
+    background: linear-gradient(145deg, #e0f0f8, #ffffff);
+}
+
+/* Enhance Shadow Effects for Input Fields */
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    background-color: #e9f5ff;
+}

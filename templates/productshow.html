@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    <link rel="stylesheet" href="{% static 'css/productshowstyle.css' %}">
+    
+</head>
+<body>
+
+    <!-- Cart Icon -->
+    <a id="cart-icon" href="{% url 'add_to_cart_store' %}" class="btn btn-primary">
+        🛒
+        {% if request.session.cart_count %}
+            <span class="cart-count">{{ cart_count|default:0 }}</span>
+        {% else %}
+            <span class="cart-count">0</span>
+        {% endif %}
+    </a>
+    
+
+      <!-- Filter Section -->
+      <div class="filter-bar">
+        <form method="POST"> <!-- Form add kari -->
+            {% csrf_token %} <!-- CSRF token secure POST request mate -->
+            <label for="product-filter">Filter by Category:</label>
+            <select id="product-filter" name="Category">
+                <option value="all">All</option>
+                <option value="men's clothing">Men's clothing</option>
+                <option value="watches">Watches</option>
+                <option value="jewelery">Jewelry</option>
+                <option value="electronics">Electronics</option>
+                <option value="women's clothing">Women's clothing</option>
+            </select>
+            <button id="filter-btn" type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <div class="product-grid">
+        {% for products in product %}
+        <!-- Product1 -->
+        <div class="product-container">
+            <div class="image-section">
+                <img src="{{ products.image.url }}" alt="Product Image">
+                <div class="rating">
+                    ★★★★☆
+                </div>
+            </div>
+            <div class="details">
+                <h2 class="title">{{products.title}}</h2>
+                <p class="description">{{products.description}}</p>
+                <p class="price">${{products.price}}</p>
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <a href="{% url 'add_to_cart' products.id %}" class="add-to-cart">Add to Cart</a>
+                    <a href="#" class="buy-now">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>    
+    
+</body>
+</html>

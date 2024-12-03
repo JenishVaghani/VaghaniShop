@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f5e9; /* Light green background for a fresh look */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.edit-form-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for contrast */
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid #a5d6a7; /* Light green border for elegance */
+}
+
+.edit-form-container h2 {
+    text-align: center;
+    color: #1b5e20; /* Deep green heading */
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2e7d32; /* Dark green for labels */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdbdbd; /* Neutral gray border */
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9; /* Light background for input fields */
+}
+
+.form-group textarea {
+    resize: none;
+    height: 100px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #388e3c; /* Medium green for buttons */
+    border: none;
+    color: #fff; /* White text */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.form-group button:hover {
+    background-color: #2e7d32; /* Darker green on hover */
+}
+
+/* Add a subtle hover effect for inputs */
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+    border-color: #66bb6a; /* Light green border on hover */
+}
+
+/* Styling for focus state */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4caf50; /* Highlight with green border */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle glow */
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f5e9; /* Light green background for a fresh look */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.edit-form-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for contrast */
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid #a5d6a7; /* Light green border for elegance */
+}
+
+.edit-form-container h2 {
+    text-align: center;
+    color: #1b5e20; /* Deep green heading */
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2e7d32; /* Dark green for labels */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdbdbd; /* Neutral gray border */
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9; /* Light background for input fields */
+}
+
+.form-group textarea {
+    resize: none;
+    height: 100px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #388e3c; /* Medium green for buttons */
+    border: none;
+    color: #fff; /* White text */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.form-group button:hover {
+    background-color: #2e7d32; /* Darker green on hover */
+}
+
+/* Add a subtle hover effect for inputs */
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+    border-color: #66bb6a; /* Light green border on hover */
+}
+
+/* Styling for focus state */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4caf50; /* Highlight with green border */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle glow */
+}
+    

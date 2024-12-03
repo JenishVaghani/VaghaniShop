@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <link rel="stylesheet" href="{% static 'css/successstyle.css' %}">
+</head>
+<body>
+    <div class="success-container">
+        <div class="message-box">
+            <h1>Payment Successful!</h1>
+            <p>Your payment has been processed successfully. Thank you for your purchase.</p>
+            <a href="{% url 'productshow' %}" class="btn">Go to Homepage</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,260 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cart Header */
+.cart-header {
+    text-align: center; 
+    margin-top: 30px;
+}
+
+.cart-icon {
+    font-size: 50px; 
+    margin-bottom: 10px;
+}
+
+.cart-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Cart Container */
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 20px; /* Add space between products */
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-item:hover {
+    transform: scale(1.02); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cart-item img {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.item-details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.item-category,
+.item-title,
+.item-rating,
+.item-price {
+    font-size: 16px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+/* Make category text darker */
+.item-category {
+    font-weight: bold;
+    color: #777; /* Darker text for better visibility */
+}
+
+.item-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.quantity-dropdown {
+    margin-left: 10px;
+    padding: 6px;
+    padding-right: 25px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    transition: border-color 0.2s ease;
+    /* width: 150px; */
+}
+
+.quantity-dropdown:hover {
+    border-color: #666;
+}
+
+.item-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+    text-align: right;
+    margin-left: auto;
+}
+
+/* Styling for the Delete Button */
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4d4d; /* Bright Red Color for visibility */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Smooth corners */
+    padding: 5px 10px; /* Space inside the button */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effect */
+.delete-button:hover {
+    background-color: #e60000; /* Darker Red */
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Delete Button Container */
+.cart-item {
+    position: relative; /* Required to use 'absolute' positioning inside */
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart-item img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .item-details {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .cart-container {
+        gap: 10px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-title {
+        font-size: 26px;
+    }
+
+    .cart-icon {
+        font-size: 40px;
+    }
+
+    .item-price {
+        font-size: 16px; 
+    }
+}
+
+
+/* Cart Summary Section */
+.cart-summary {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Subtotal Styles */
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    font-size: 22px; /* Increased font size for visibility */
+    font-weight: bold;
+    color: #212121; /* Darker text for emphasis */
+    background: linear-gradient(45deg, #f9f9f9, #ececec); /* Highlight background */
+    padding: 10px;
+    border: 2px solid #ddd; /* Subtle border for focus */
+    border-radius: 8px;
+    margin-bottom: 15px; /* Add space below subtotal */
+    text-align: center;
+    align-items: center;
+}
+
+.subtotal span {
+    color: #ff4500; /* Vibrant orange-red for the price */
+    font-size: 24px; /* Increased price font size */
+    font-weight: bold;
+}
+    
+
+
+
+/* Checkout Button Styles */
+.checkout-button {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(45deg, #28a745, #218838);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.checkout-button:hover {
+    background: linear-gradient(45deg, #1e7e34, #155724);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design for Cart Summary */
+@media (max-width: 768px) {
+    .cart-summary {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .checkout-button {
+        width: 100%; /* Full-width button on small screens */
+        text-align: center;
+    }
+}
+

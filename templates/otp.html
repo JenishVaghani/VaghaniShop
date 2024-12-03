@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <link rel="stylesheet" href="{% static 'css/otpstyle.css' %}">
+</head>
+<body>
+    <div class="otp-container">
+        <h2>OTP Verification</h2>
+        <p>Enter the OTP sent to your registered email/phone number</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="otp-input-container">
+                <input type="text" name="otp1" maxlength="1" class="otp-input" required>
+                <input type="text" name="otp2" maxlength="1" class="otp-input" required>
+                <input type="text" name="otp3" maxlength="1" class="otp-input" required>
+                <input type="text" name="otp4" maxlength="1" class="otp-input" required>
+            </div>
+            <button type="submit">Verify OTP</button>
+        </form>
+        <div class="resend-otp">
+            <a href="#" id="resend-link">Resend OTP</a>
+        </div>
+    </div>
+    <script src="{% static 'js/otpstyle.js' %}"></script>
+</body>
+</html>

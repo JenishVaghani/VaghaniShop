@@ -1,0 +1,91 @@
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f0f9ff, #dff4ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Form Container */
+.add-product-container {
+    max-width: 600px; /* Moderate width increase */
+    width: 100%; /* Ensures it scales with screen size */
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+.add-product-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Fields */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px; /* Slightly increased padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Image Input Styling */
+.form-group input[type="file"] {
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #f9f9f9;
+    border: 1px dashed #ccc;
+}
+
+.form-group select {
+    cursor: pointer;
+    background: #f9f9f9;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 10px; /* Slightly increased padding */
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #0056b3, #003d82);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .add-product-container {
+        margin: 10px;
+        padding: 15px;
+    }
+}

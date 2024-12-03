@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <h1>Pay ₹{{ amount }}</h1>
+
+    <button id="pay-button">Pay Now</button>
+
+    <form id="payment-form" method="POST" action="{% url 'payment_success' %}">
+        {% csrf_token %}
+        <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+        <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
+        <input type="hidden" name="razorpay_signature" id="razorpay_signature">
+    </form>
+
+    <script>
+        const options = {
+            key: "{{ razorpay_key }}",
+            amount: "{{ amount }}" * 100,
+            currency: "INR",
+            name: "Demo Payment",
+            description: "Test Transaction",
+            order_id: "{{ order_id }}",
+            handler: function (response) {
+                // Fill the form and submit it automatically
+                document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
+                document.getElementById('razorpay_order_id').value = response.razorpay_order_id;
+                document.getElementById('razorpay_signature').value = response.razorpay_signature;
+                document.getElementById('payment-form').submit();
+            }
+        };
+
+        const rzp = new Razorpay(options);
+
+        document.getElementById('pay-button').onclick = function (e) {
+            rzp.open();
+            e.preventDefault();
+        };
+    </script>
+</body>
+</html>

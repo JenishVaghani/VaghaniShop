@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="{% static 'css/add_to_cart_storestyle.css' %}">
+</head>
+<body>
+
+    <div class="cart-header">
+        <span class="cart-icon"></span>
+        <h1 class="cart-title">🛒Your Shopping Cart</h1>
+    </div>
+
+    <div class="cart-container">
+        {% for item in cart_items %}
+        <div class="cart-item">
+            <img src="{{item.Images}}" alt="{{item.title}}">
+            <div class="item-details">
+                <div class="item-title">{{item.title}}</div>
+                <div class="item-category">{{item.Category}}</div>
+                <div class="item-rating">★★★★☆</div>
+                <div class="item-controls">
+                     <!-- Quantity Form -->
+                     <form method="POST" action="{% url 'add_to_cart_store' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="cart_item_id" value="{{ item.cart_item_id }}">
+                        <label for="quantity">Quantity:</label>
+                        <select class="quantity-dropdown" id="quantity" name="quantity" onchange="this.form.submit()">
+                            <option value="1" {% if item.Quantity == 1 %}selected{% endif %}>1</option>
+                            <option value="2" {% if item.Quantity == 2 %}selected{% endif %}>2</option>
+                            <option value="3" {% if item.Quantity == 3 %}selected{% endif %}>3</option>
+                            <option value="4" {% if item.Quantity == 4 %}selected{% endif %}>4</option>
+                            <option value="5" {% if item.Quantity == 5 %}selected{% endif %}>5</option>
+                        </select>
+                    </form>
+                    <div class="item-price">${{item.TotalPrice}}</div>
+                    <form method="POST" action="{% url 'delete_cart_item' %}" class="delete-form">
+                        {% csrf_token %}
+                        <input type="hidden" name="cart_item_id" value="{{ item.cart_item_id }}">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cart-summary">
+        <div class="subtotal">
+            Subtotal: <span>${{ subtotal|floatformat:2 }}</span>
+        </div>
+        <div>
+            <a href="{% url 'checkout' %}" class="checkout-button">Proceed to Checkout</a>
+        </div>
+    </div>
+    
+</body>
+</html>
